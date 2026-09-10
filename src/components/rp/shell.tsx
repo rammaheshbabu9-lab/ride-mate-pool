@@ -7,7 +7,7 @@ export function Diamond({ className = "" }: { className?: string }) {
   return <span className={`inline-block rotate-45 rounded-[2px] ${className}`} />;
 }
 
-export function BrandHeader({ subtitle }: { subtitle?: string }) {
+export function BrandHeader({ subtitle }: { subtitle?: string | undefined }) {
   const { profile } = useAuth();
   const initial = (profile?.full_name || profile?.email || "R").trim().charAt(0).toUpperCase();
   return (
@@ -70,7 +70,7 @@ export function BottomNav() {
   );
 }
 
-export function Screen({ children, subtitle }: { children: ReactNode; subtitle?: string }) {
+export function Screen({ children, subtitle }: { children: ReactNode; subtitle?: string | undefined }) {
   return (
     <div className="mx-auto flex min-h-dvh w-full max-w-md flex-col bg-background pb-2">
       <BrandHeader subtitle={subtitle} />
